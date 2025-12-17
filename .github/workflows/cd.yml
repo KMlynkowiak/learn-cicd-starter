@@ -31,3 +31,5 @@ jobs:
       - name: Build and push Docker image
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/graceful-goods-481417-n7/notely-ar-repo/notely-api:latest .
       
+      - name: Deploy to Cloud Run
+        run: gcloud run deploy notely --image us-central1-docker.pkg.dev/graceful-goods-481417-n7/notely-ar-repo/notely-api:latest --region us-central1 --allow-unauthenticated --project graceful-goods-481417-n7 --max-instances=4
